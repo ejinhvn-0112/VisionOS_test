@@ -13,11 +13,16 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             List {
-                Text("Item")
+                ForEach(1...15, id: \.self) {_ in 
+                    Text("Item")
+                }
             }
             .navigationTitle("Sidebar")
         } detail: {
             VStack {
+                Model3D(named: "Scene", bundle: realityKitContentBundle)
+                    .padding(.bottom, 50)
+                
                 Model3D(named: "Scene", bundle: realityKitContentBundle)
                     .padding(.bottom, 50)
 
